@@ -1,14 +1,15 @@
 const express = require('express')
 const request = require('superagent')
+const dotenv = require('dotenv')
+dotenv.config()
 const router = express.Router()
-const apikey = '2bf36f72f3df4b84a2bbf66178d350b2'
+const apiKey = process.env.apiKey
 router.get('/', (req, res) => {
-  console.log('hit the route')
   return request
-    .get(`https://newsapi.org/v2/top-headlines?country=nz&apiKey=${apikey}`)
+    .get(`https://newsapi.org/v2/top-headlines?country=nz&apiKey=${apiKey}`)
     .set('User-Agent', 'userAgent')
     .then((response) => res.json(response.body))
-  // .catch((err) => console.log(err))
+    .catch((err) => console.log(err))
 })
 
 module.exports = router
