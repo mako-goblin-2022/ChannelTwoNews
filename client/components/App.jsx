@@ -4,7 +4,7 @@ import { getWelcome, getNews } from '../apiClient'
 
 function App() {
   const [welcomeStatement, setWelcomeStatement] = useState('')
-  const [news, setNews] = useState(null)
+  const [news, setNews] = useState([])
   useEffect(() => {
     getWelcome()
       .then((res) => {
@@ -13,27 +13,23 @@ function App() {
       .catch((err) => {
         console.error(err.message)
       })
-  })
-  getNews()
-    .then((res) => {
-      setNews(res)
-      console.log(res)
-      return null
-    })
-    .catch((err) => {
-      console.error(err.message)
-    })
-
+    getNews()
+      .then((res) => {
+        setNews(res.articles)
+      })
+      .catch((err) => {
+        console.error(err.message)
+      })
+  }, [])
+  console.log(news)
   return (
     <>
       <h1>{welcomeStatement}</h1>
       <div>
-        {pokemon && (
+        {news && (
           <div>
-            <h2>{articles.title}</h2>
-            <p>Id: {pokemon.id}</p>
-            <p>Base experience: {pokemon.base_experience}</p>
-            <p>Height: {pokemon.height}</p>
+            {/* <h2>{news.articles.title}</h2>
+            <p>Author: {news.articles.author}</p> */}
           </div>
         )}
       </div>
