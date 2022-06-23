@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { get } from 'superagent'
 import { getWelcome, getNews } from '../apiClient'
+import MainArticle from './MainArticle'
 
 function App() {
   const [welcomeStatement, setWelcomeStatement] = useState('')
@@ -30,6 +31,7 @@ function App() {
           <div>
             {/* <h2>{news.articles.title}</h2>
             <p>Author: {news.articles.author}</p> */}
+            <MainArticle headline={news[0]} />
           </div>
         )}
       </div>
