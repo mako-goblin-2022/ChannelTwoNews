@@ -8,7 +8,16 @@ function MainArticle({ headline }) {
   return (
     <>
       <h1>Today's Top Article</h1>
-      {headline && <p>{headline.title}</p>}
+      {headline && (
+        <div>
+          <p>{headline.title}</p>
+          <p>{headline.author}</p>
+          <img src={headline.urlToImage} />
+          <p>{headline.content}</p>
+          <p>{headline.url}</p>
+          <p>{headline.publishedAt}</p>
+        </div>
+      )}
     </>
   )
 }
