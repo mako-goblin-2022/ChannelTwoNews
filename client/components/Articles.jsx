@@ -2,9 +2,10 @@ import React from "react";
 import Article from './Article'
 
 function Articles({ data }) {
+const articleFeed = data.slice(1) 
   return (
     <div>
-    {data?.map((article, i) =>
+    {articleFeed?.map((article, i) =>
       { return <Article key={i} data={article} /> }
       )}
     </div>
