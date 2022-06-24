@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import { get } from 'superagent'
+// import { get } from 'superagent'
 import { getWelcome, getNews } from '../apiClient'
+import Articles from './Articles'
 import MainArticle from './MainArticle'
 
 function App() {
@@ -26,15 +27,12 @@ function App() {
   return (
     <>
       <h1>{welcomeStatement}</h1>
-      <div>
-        {news && (
-          <div>
-            {/* <h2>{news.articles.title}</h2>
-            <p>Author: {news.articles.author}</p> */}
-            <MainArticle headline={news[0]} />
-          </div>
-        )}
-      </div>
+        {news && 
+        <div>
+        <MainArticle headline={news[0]} />
+         <Articles data={news}/>
+         </div>
+        }
     </>
   )
 }
