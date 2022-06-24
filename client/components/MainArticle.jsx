@@ -1,6 +1,4 @@
-import React, { useState, useEffect } from 'react'
-import { get } from 'superagent'
-import { getNews } from '../apiClient'
+import React from 'react';
 
 function MainArticle({ headline }) {
   console.log(headline)
