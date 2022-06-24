@@ -5,15 +5,18 @@ function MainArticle({ headline }) {
 
   return (
     <>
-      <h1>Today's Top Article</h1>
+      <h4>CHANNEL TWO NEWS</h4>
+      <h3>~updated hourly~</h3>
+      <h1>TOP ARTICLE THIS HOUR:</h1>
       {headline && (
         <div>
-          <p>{headline.title}</p>
+          <h2>{headline.title}</h2>
+          <p>{headline.publishedAt}</p>
           <p>{headline.author}</p>
+          <a href={headline.url}>Read more here</a> <br></br>
           <img src={headline.urlToImage} />
           <p>{headline.content}</p>
-          <p>{headline.url}</p>
-          <p>{headline.publishedAt}</p>
+          <br></br>
         </div>
       )}
     </>
